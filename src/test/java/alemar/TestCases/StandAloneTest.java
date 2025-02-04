@@ -18,6 +18,7 @@ public class StandAloneTest {
 
     public static void main(String[] args) throws InterruptedException {
 
+	//new comment added
         String productName = "IPHONE 13 PRO";
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
