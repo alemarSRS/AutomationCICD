@@ -15,3 +15,15 @@ Feature: Purchase the order from Ecommerce Website
     Examples:
       | name                     | password       | productName   |
       | alex92.marciuc@gmail.com | TereaXiaomi14T | IPHONE 13 PRO |
+
+  @Regression
+  Scenario Outline: Positive test of Submitting the order with secured credentials
+    Given Logs in as an <customer>
+    When I add product <productName> to Cart
+    And Checkout <productName> and submit the order
+    Then "THANKYOU FOR THE ORDER." message is displayed on ConfirmationPage
+
+    Examples:
+      | customer     | productName |
+      | CUSTOMER_ONE | QWERTY      |
+#      | CUSTOMER_TWO | QWERTY      |
