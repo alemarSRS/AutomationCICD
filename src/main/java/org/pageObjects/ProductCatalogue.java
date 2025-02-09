@@ -19,8 +19,6 @@ public class ProductCatalogue extends AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
-    //    WebElement userEmail = driver.findElement(By.id("userEmail"));
-    //pageFactory
     @FindBy(css = ".mb-3")
     List<WebElement> productList;
 

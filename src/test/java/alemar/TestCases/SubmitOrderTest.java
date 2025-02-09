@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SubmitOrderTest extends BaseTest {
 
-    String productName = "IPHONE 13 PRO";
+    String productName = "IPHONE";
 
     @Test(dataProvider = "getData", groups = {"PurchaseTest"})
     public void submitOrder(HashMap<String, String> input) throws IOException {

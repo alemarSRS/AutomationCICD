@@ -16,8 +16,6 @@ public class LandingPage extends AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
-    //    WebElement userEmail = driver.findElement(By.id("userEmail"));
-    //pageFactory
     @FindBy(id = "userEmail")
     WebElement userEmail;
 

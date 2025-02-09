@@ -47,7 +47,6 @@ public class StepDefinitionImpl extends BaseTest {
 
     @When("^Checkout (.+) and submit the order$")
     public void checkout_submit_order(String productName) {
-
         CartProducts cartPro = productCatalogue.accessCart();
         Boolean match = cartPro.matchProducts(productName);
         Assert.assertTrue(match);
@@ -58,7 +57,6 @@ public class StepDefinitionImpl extends BaseTest {
 
     @Then("{string} message is displayed on ConfirmationPage")
     public void message_displayed_confirmationPage(String string) {
-
         String confirmMessage = order.getConfirmationText();
         Assert.assertTrue(confirmMessage.equalsIgnoreCase(string));
     }
