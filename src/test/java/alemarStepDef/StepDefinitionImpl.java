@@ -4,6 +4,8 @@ import alemar.TestComponents.BaseTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.data.UserHelper;
+import org.openqa.selenium.InvalidArgumentException;
 import org.pageObjects.*;
 import org.testng.Assert;
 
@@ -23,6 +25,19 @@ public class StepDefinitionImpl extends BaseTest {
     @Given("^Logged in with username (.+) and password (.+)$")
     public void logged_in_username_and_password(String username, String password) {
         productCatalogue = landingPage.loginApplication(username, password);
+    }
+
+    @Given("^Logs in as a \"?([^\"]*)\"?$")
+    public void logs_in_as_a_user(UserHelper user) {
+        switch (user) {
+            case CUSTOMER_ONE ->
+                    productCatalogue = landingPage.loginApplication(System.getenv(UserHelper.CUSTOMER_USERNAME_1.name()),
+                            System.getenv(UserHelper.CUSTOMER_PASSWORD_1.name()));
+            case CUSTOMER_TWO ->
+                    productCatalogue = landingPage.loginApplication(System.getenv(UserHelper.CUSTOMER_USERNAME_2.name()),
+                            System.getenv(UserHelper.CUSTOMER_PASSWORD_2.name()));
+            default -> throw new InvalidArgumentException("Provided user type not valid");
+        }
     }
 
     @When("^I add product (.+) to Cart$")
@@ -52,5 +67,18 @@ public class StepDefinitionImpl extends BaseTest {
     public void something_message_is_displayed(String string) {
         Assert.assertEquals(string, landingPage.getErrorMessage());
         driver.close();
+    }
+
+    @Given("Logs in as an ([^\"]*)$")
+    public void logsInAsAn(UserHelper user) {
+        switch (user) {
+            case CUSTOMER_ONE ->
+                    productCatalogue = landingPage.loginApplication(System.getenv(UserHelper.CUSTOMER_USERNAME_1.name()),
+                            System.getenv(UserHelper.CUSTOMER_PASSWORD_1.name()));
+            case CUSTOMER_TWO ->
+                    productCatalogue = landingPage.loginApplication(System.getenv(UserHelper.CUSTOMER_USERNAME_2.name()),
+                            System.getenv(UserHelper.CUSTOMER_PASSWORD_2.name()));
+            default -> throw new InvalidArgumentException("Provided user type not valid");
+        }
     }
 }
