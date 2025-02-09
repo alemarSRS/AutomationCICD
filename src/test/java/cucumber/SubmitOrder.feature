@@ -13,8 +13,8 @@ Feature: Purchase the order from Ecommerce Website
     Then "THANKYOU FOR THE ORDER." message is displayed on ConfirmationPage
 
     Examples:
-      | name                     | password       | productName   |
-      | alex92.marciuc@gmail.com | TereaXiaomi14T | IPHONE 13 PRO |
+      | name                     | password       | productName |
+      | alex92.marciuc@gmail.com | TereaXiaomi14T | IPHONE      |
 
   @Regression
   Scenario Outline: Positive test of Submitting the order with secured credentials
@@ -25,5 +25,5 @@ Feature: Purchase the order from Ecommerce Website
 
     Examples:
       | customer     | productName |
-      | CUSTOMER_ONE | QWERTY      |
-#      | CUSTOMER_TWO | QWERTY      |
+      | CUSTOMER_ONE | IPHONE      |
+      | CUSTOMER_TWO | ADIDAS      |
