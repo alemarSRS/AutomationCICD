@@ -16,7 +16,7 @@ Feature: Purchase the order from Ecommerce Website
       | name                     | password       | productName |
       | alex92.marciuc@gmail.com | TereaXiaomi14T | IPHONE      |
 
-  @Regression
+  @Regression @credentials_env
   Scenario Outline: Positive test of Submitting the order with secured credentials
     Given Logs in as an <customer>
     When I add product <productName> to Cart
