@@ -19,7 +19,7 @@ public class ErrorValidationsTest extends BaseTest {
 
     @Test
     public void productErrorValidation() throws IOException {
-        String productName = "IPHONE";
+        String productName = "IPHONE 13 PRO";
         ProductCatalogue productCatalogue = landingPage.loginApplication(
                 "alex92.marciuc@gmail.com", "TereaXiaomi14T");
         productCatalogue.addProductToCart(productName);
