@@ -3,8 +3,10 @@ package alemar;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = "src/test/java/cucumber", glue = "alemarStepDef",
-monochrome = true,tags = "@Regression", plugin = {"html:target/cucumber.html"})
+@CucumberOptions(features = "classpath:features",
+        plugin = {"pretty", "json:reports/cucumber-report.json", "html:reports/cucumber-reports.html"},
+        monochrome = true,
+        tags = "Regression")
 public class TestNGTestRunner extends AbstractTestNGCucumberTests {
 
 }
